@@ -29,8 +29,8 @@ http.createServer(function(req, rsp){
                 .ele('tv', {
                     'source-info-url': "https://www.wlvt.org/pbs39-tv-schedules/",
                     'source-info-name': "WLVT PBS39",
-                    'generator-info-name': "dfiel xmltv-gen",
-                    'generator-info-url': "https://fiel.solutions"
+                    'generator-info-name': "dfiel/pbs39-m3u8-xmltv",
+                    'generator-info-url': "https://github.com/dfiel/pbs39-m3u8-xmltv.git"
                 }).dtd({sysID: "xmltv.dtd"})
                     .ele('channel', { id: "pbs39"})
                         .ele('display-name').txt('39 WLVT').up()
