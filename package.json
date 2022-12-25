@@ -1,0 +1,9 @@
+{
+    "name": "pbs39-m3u8-xmltv",
+    "description": "A M3U8 proxy and XMLTV provider for PBS39 WLVT",
+    "version": "0.0.1",
+    "dependencies": {
+        "request": "1.9.5",
+        "xmlbuilder2": "^3.0.2"
+    }
+}
