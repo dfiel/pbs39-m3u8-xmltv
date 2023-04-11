@@ -40,7 +40,8 @@ http.createServer(function(req, rsp){
     
     for (let i = -1; i < EPG_FUTURE_DAYS; i++) {
         var date = new Date(mdate.getTime() + (i * 86400000));
-        var options = { uri: `https://jaws.pbs.org/tvss/station/WLVT/providers-feed/day/${date.getFullYear()}${date.getMonth()+1}${date.getDate()}/?callback=&provider=Broadcast&kids=&kidsflag=false`};
+        var options = { uri: `https://jaws.pbs.org/tvss/station/WLVT/providers-feed/day/${date.getFullYear()}${(date.getMonth()+1).toLocaleString(undefined, {minimumIntegerDigits: 2})}${date.getDate()}/?callback=&provider=Broadcast&kids=&kidsflag=false`};
+        console.log(options);
 
         request(options, function(err, response, body){
             var data = JSON.parse(body.substring(1, body.length-1));
