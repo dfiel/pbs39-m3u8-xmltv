@@ -9,10 +9,10 @@ const M3U8_PORT = 4343;
 const XMLTV_PORT = 3434;
 
 http.createServer(function(req, rsp){
-    var options = { uri: "https://forerunnerrtmp.livestreamingcdn.com/output18/output18.stream/playlist.m3u8"}
+    var options = { uri: "https://playout6multirtmp.tulix.tv/live76-wlvtv1/live76-wlvtv1/playlist.m3u8"}
 
     request(options, function(err, response, body){
-        lines = ['#EXTM3U', '#EXTINF:-1 tvg-id="pbs39" group-title="Education",PBS39', 'https://forerunnerrtmp.livestreamingcdn.com/output18/output18.stream/' + body.split('\n')[3], '']
+        lines = ['#EXTM3U', '#EXTINF:-1 tvg-id="pbs39" group-title="Education",PBS39', 'https://playout6multirtmp.tulix.tv/live76-wlvtv1/live76-wlvtv1/' + body.split('\n')[3], '']
         rsp.writeHead(200)
         rsp.end(lines.join('\n'))
         console.log(lines)
@@ -40,7 +40,7 @@ http.createServer(function(req, rsp){
     
     for (let i = -1; i < EPG_FUTURE_DAYS; i++) {
         var date = new Date(mdate.getTime() + (i * 86400000));
-        var options = { uri: `https://jaws.pbs.org/tvss/station/WLVT/providers-feed/day/${date.getFullYear()}${(date.getMonth()+1).toLocaleString(undefined, {minimumIntegerDigits: 2})}${date.getDate()}/?callback=&provider=Broadcast&kids=&kidsflag=false`};
+        var options = { uri: `https://jaws.pbs.org/tvss/station/WLVT/providers-feed/day/${date.getFullYear()}${(date.getMonth()+1).toLocaleString(undefined, {minimumIntegerDigits: 2})}${(date.getDate()).toLocaleString(undefined, {minimumIntegerDigits: 2})}/?callback=&provider=Broadcast&kids=&kidsflag=false`};
         console.log(options);
 
         request(options, function(err, response, body){
